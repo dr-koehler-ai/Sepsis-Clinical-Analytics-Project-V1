@@ -1,5 +1,10 @@
 # Clinical Sepsis Analytics Dashboard (V1)
 
+A patient-level exploratory data analysis of ICU time-series data to investigate clinical differences between Sepsis and Non-Sepsis patients.
+
+Built using Python, Pandas, Seaborn, and real-world clinical data.
+
+
 ## Overview
 
 This project analyzes ICU patient data to explore clinical differences between patients who develop sepsis and those who do not.
