@@ -25,7 +25,7 @@ The goal is to build a **clean, interpretable, patient-level clinical analytics 
 
 ## Dataset
 
-The dataset contains ICU time-series measurements including:
+The dataset contains ICU time-series measurements from the the PhysioNet/Computing in Cardiology Challenge 2019 including:
 
 - Vital signs (HR, MAP, Resp, O2Sat, Temp)
 - Laboratory values (Lactate, WBC, Creatinine)
@@ -75,7 +75,7 @@ This analysis demonstrates that even simple patient-level aggregation of ICU tim
 
 The observed patterns are consistent with established clinical knowledge of sepsis pathophysiology:
 
-- Increased heart rate reflects systemic inflammatory response and compensatory cardiovascular stress.
+- Increased heart rate reflects systemic shift of fluids to the tissue with hypovolaemia and compensatory cardiovascular stress.
 - Reduced mean arterial pressure is consistent with distributive shock.
 - Elevated lactate levels indicate tissue hypoperfusion and anaerobic metabolism.
 - Increased creatinine suggests early signs of renal dysfunction in severe cases.
