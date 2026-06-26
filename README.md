@@ -1,6 +1,6 @@
 # Sepsis Risk Analysis Dashboard (V1)
 
-A patient-level exploratory data analysis of ICU time-series data to investigate clinical differences between Sepsis and Non-Sepsis patients.
+A first patient-level exploratory data analysis of ICU time-series data to investigate clinical differences between Sepsis and Non-Sepsis patients.
 
 Built using Python, Pandas, Seaborn, and real-world clinical data.
 
@@ -29,7 +29,7 @@ The dataset contains ICU time-series measurements from the the PhysioNet/Computi
 
 - Vital signs (HR, MAP, Resp, O2Sat, Temp)
 - Laboratory values (Lactate, WBC, Creatinine)
-- Patient metadata (Age, Gender)
+- Patient denographics (Age, Gender)
 - Sepsis label (binary outcome over time)
 
 Each row represents one hour of a patient's ICU stay.
@@ -52,7 +52,7 @@ Each row represents one hour of a patient's ICU stay.
 
 ### 4. Analysis
 - Comparison of Sepsis vs Non-Sepsis patients
-- Statistical aggregation of physiological differences
+- Visual aggregation of physiological differences
 
 ---
 
@@ -73,23 +73,23 @@ These findings align with known clinical patterns of septic shock and organ dysf
 
 This analysis demonstrates that even simple patient-level aggregation of ICU time-series data can reveal clinically meaningful differences between Sepsis and Non-Sepsis patients.
 
-The observed patterns are consistent with established clinical knowledge of sepsis pathophysiology:
+The observed patterns are consistent with clinical knowledge of sepsis pathophysiology:
 
-- Increased heart rate reflects systemic shift of fluids to the tissue with hypovolaemia and compensatory cardiovascular stress.
-- Reduced mean arterial pressure is consistent with distributive shock.
+- Distributive shock with a systemic shift of fluids to the tissue leads to an increased heart reflecting compensatory cardiovascular stress.
+- Reduced mean arterial pressure is consistent with reduced vessel fluids.
 - Elevated lactate levels indicate tissue hypoperfusion and anaerobic metabolism.
 - Increased creatinine suggests early signs of renal dysfunction in severe cases.
 
 ### Limitations
 
-- Temporal dynamics are not explicitly modeled (loss of time-series information through aggregation).
-- Aggregated statistics (mean/max/min) may obscure clinically relevant trajectories before and after sepsis onset.
+- Temporal dynamics are not modeled (loss of time-series information through aggregation before- and after diagnosing sepsis).
+- Aggregated statistics (mean/max/min) may conceal clinically relevant pattern changes before and after sepsis onset.
 - No predictive modeling is performed in this V1 version.
 - Missing data handling is simplified and may introduce bias.
 
 ### Clinical Relevance
 
-Despite its simplicity, this analysis provides a clear and interpretable overview of physiological differences associated with sepsis. It serves as a foundation for more advanced predictive modeling and time-series analysis in future work (V2).
+Despite its simplicity, this analysis provides a clear and interpretable overview of physiological differences associated with sepsis. It serves as a foundation for more advanced data science, predictive modeling and time-series analysis in future work (V2).
 
 ---
 
