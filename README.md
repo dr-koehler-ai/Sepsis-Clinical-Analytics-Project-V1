@@ -1,4 +1,4 @@
-# Clinical Sepsis Analytics Dashboard (V1)
+# Sepsis Risk Analysis Dashboard (V1)
 
 A patient-level exploratory data analysis of ICU time-series data to investigate clinical differences between Sepsis and Non-Sepsis patients.
 
