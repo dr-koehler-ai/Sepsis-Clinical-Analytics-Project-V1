@@ -34,6 +34,8 @@ The dataset contains ICU time-series measurements from the the PhysioNet/Computi
 
 Each row represents one hour of a patient's ICU stay.
 
+The original dataset used in this project is publicly available on Kaggle. To keep this repository lightweight, a reduced sample dataset (sample_dataset_50k.csv) is included for demonstration and testing purposes. The complete dataset can be downloaded directly from Kaggle using the provided notebook.
+
 ---
 
 ## Methodology
