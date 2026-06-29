@@ -40,21 +40,32 @@ The original dataset used in this project is publicly available on Kaggle. To ke
 
 ## Methodology
 
-### 1. Data Cleaning
-- Removal of highly incomplete variables (>90% missing values)
-- Retention of clinically relevant variables
+### 1. Data Download
+- Kaggle ICU dataset loaded via `kagglehub`
+- Raw time-series patient data imported from CSV
 
-### 2. Feature Engineering
-- Aggregation of time-series data into patient-level features:
-  - Mean values (e.g. HR_mean, MAP_mean)
-  - Extreme values (e.g. Lactate_max)
+### 2. Data Cleaning
+- Missing value analysis performed
+- Low-quality variables (>90% missing) removed
+- Clinically relevant variables retained (e.g., HR, MAP, Lactate, Creatinine)
 
-### 3. Outcome Definition
-- A patient is defined as **Sepsis-positive** if at least one timestamp shows SepsisLabel = 1.
+### 3. Feature Engineering (Patient-Level Aggregation)
+- Time-series data aggregated into patient-level statistics
+  - Mean, max, min values per vital sign
+- Clinical baseline features included (Age, Gender)
+- Outcome variable defined as `SepsisPatient`
 
-### 4. Analysis
-- Comparison of Sepsis vs Non-Sepsis patients
-- Visual aggregation of physiological differences
+### 4. Exploratory Data Analysis (EDA)
+- Distribution comparisons between Sepsis vs Non-Sepsis patients
+- Boxplots for key physiological markers
+- Summary statistics table
+- Correlation heatmap of clinical profiles
+
+### 5. Interpretation Layer
+- Identification of physiological patterns associated with sepsis:
+  - Elevated lactate levels
+  - Altered MAP and heart rate
+  - Kidney function markers (creatinine)
 
 ---
 
