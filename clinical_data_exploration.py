@@ -146,37 +146,3 @@ plt.ylabel("Clinical Parameters")
 plt.xlabel("Group")
 plt.savefig("figures/heatmap.png", dpi=300, bbox_inches="tight")
 plt.show()
-
-# =========================
-# Simple Clinical Dashboard (V1 Summary View)
-# =========================
-
-def run_dashboard(dataset_agg):
-
-    print("\n===== SEPSIS ANALYTICS DASHBOARD (V1) =====\n")
-
-    # 1. Dataset Overview
-    print("Dataset Shape:", dataset_agg.shape)
-    print("\nSepsis Distribution:")
-    print(dataset_agg["SepsisPatient"].value_counts(normalize=True).round(3))
-
-    # 2. Key Clinical Summary
-    features = ["HR_mean", "MAP_mean", "Lactate_max", "Creatinine_max"]
-
-    summary = dataset_agg.groupby("SepsisPatient")[features].mean().T
-    summary.columns = ["Non-Sepsis", "Sepsis"]
-
-    print("\nClinical Summary (Mean Values):\n")
-    print(summary.round(2))
-
-    # 3. Quick Visualization
-    plt.figure(figsize=(8, 5))
-    sns.heatmap(summary, annot=True, cmap="Reds", fmt=".2f")
-    plt.title("Sepsis vs Non-Sepsis Clinical Profile (V1)")
-    plt.tight_layout()
-    plt.show()
-
-
-# Run dashboard
-run_dashboard(dataset_agg)
-
