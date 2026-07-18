@@ -1,128 +1,197 @@
-# Sepsis-Clinical-Analytics-Project-V1
+# Sepsis Clinical Analytics Project V1
 
-A first patient-level exploratory data analysis of ICU time-series data to investigate clinical differences between Sepsis and Non-Sepsis patients.
+A patient-level exploratory data analysis of ICU time-series data to investigate clinical characteristics associated with Sepsis compared with Non-Sepsis patients.
 
-Built using Python, Pandas, Seaborn, and real-world clinical data.
-
-
-## Overview
-
-This project analyzes ICU patient data to explore clinical differences between patients who develop sepsis and those who do not.
-
-The goal is to build a **clean, interpretable, patient-level clinical analytics pipeline** using real-world hospital data.
+Built using Python, Pandas, Seaborn, and real-world clinical ICU data.
 
 ---
 
-## Objectives
+# Overview
+
+This project analyzes intensive care unit (ICU) time-series data to explore physiological and laboratory differences between patients with and without sepsis.
+
+The main goal is to build a **clean, interpretable, patient-level clinical analytics pipeline** that transforms complex ICU measurements into clinically meaningful features.
+
+---
+
+# Clinical Question
+
+**Which physiological and laboratory characteristics differ between ICU patients with and without sepsis?**
+
+---
+
+# Objectives
 
 - Identify patients with and without sepsis
-- Handle missing clinical data
-- Aggregate time-series ICU data into patient-level features
-- Compare physiological patterns between groups
-- Visualize clinically relevant differences
+- Assess data quality and missingness patterns
+- Transform ICU time-series measurements into patient-level features
+- Explore clinical characteristics associated with sepsis status
+- Visualize relevant physiological and laboratory differences
 
 ---
 
-## Dataset
+# Dataset
 
-The dataset contains ICU time-series measurements from the the PhysioNet/Computing in Cardiology Challenge 2019 including:
+The dataset contains ICU time-series measurements from the **PhysioNet/Computing in Cardiology Challenge 2019**.
 
-- Vital signs (HR, MAP, Resp, O2Sat, Temp)
-- Laboratory values (Lactate, WBC, Creatinine)
-- Patient denographics (Age, Gender)
-- Sepsis label (binary outcome over time)
+Included variables:
 
-Each row represents one hour of a patient's ICU stay.
+- Vital signs:
+  - Heart rate (HR)
+  - Mean arterial pressure (MAP)
+  - Respiratory rate (Resp)
+  - Oxygen saturation (O2Sat)
+  - Temperature (Temp)
 
-The original dataset used in this project is publicly available on Kaggle. To keep this repository lightweight, a reduced sample dataset (sample_dataset_50k.csv) is included for demonstration and testing purposes. The complete dataset can be downloaded directly from Kaggle using the provided notebook.
+- Laboratory measurements:
+  - Lactate
+  - White blood cell count (WBC)
+  - Creatinine
+  - Platelets
+
+- Demographic characteristics:
+  - Age
+  - Gender
+
+- Sepsis label:
+  - Binary outcome indicating whether sepsis occurred during ICU stay
+
+Each row represents one hourly measurement during a patient's ICU stay.
+
+The original dataset is publicly available via Kaggle. To keep this repository lightweight, a reduced sample dataset is included for demonstration and testing purposes. The complete dataset can be downloaded through the provided notebook.
 
 ---
 
-## Methodology
+# Methodology
 
-### 1. Data Download
-- Kaggle ICU dataset loaded via `kagglehub`
-- Raw time-series patient data imported from CSV
+## 1. Data Acquisition
 
-### 2. Data Cleaning
+- ICU dataset downloaded using `kagglehub`
+- Raw time-series data imported from CSV
+
+---
+
+## 2. Data Quality Assessment
+
 - Missing value analysis performed
-- Low-quality variables (>90% missing) removed
-- Clinically relevant variables retained (e.g., HR, MAP, Lactate, Creatinine)
-
-### 3. Feature Engineering (Patient-Level Aggregation)
-- Time-series data aggregated into patient-level statistics
-  - Mean, max, min values per vital sign
-- Clinical baseline features included (Age, Gender)
-- Outcome variable defined as `SepsisPatient`
-
-### 4. Exploratory Data Analysis (EDA)
-- Distribution comparisons between Sepsis vs Non-Sepsis patients
-- Boxplots for key physiological markers
-- Summary statistics table
-- Correlation heatmap of clinical profiles
-
-### 5. Interpretation Layer
-- Identification of physiological patterns associated with sepsis:
-  - Elevated lactate levels
-  - Altered MAP and heart rate
-  - Kidney function markers (creatinine)
+- Variables with >90% missing values removed
+- Clinically relevant variables retained
+- Plausibility checks performed using descriptive statistics
 
 ---
 
-## Key Findings
+## 3. Patient-Level Feature Engineering
 
-Sepsis patients show:
+Hourly ICU measurements were transformed into patient-level features.
 
-- Higher heart rate (HR)
-- Lower mean arterial pressure (MAP)
-- Elevated lactate levels
-- Increased creatinine levels
+Aggregation included:
 
-These findings align with known clinical patterns of septic shock and organ dysfunction.
+- Mean values
+- Maximum values
+- Minimum values
 
----
+Examples:
 
-## Discussion
+- Mean heart rate
+- Minimum MAP
+- Maximum lactate
+- Maximum creatinine
 
-This analysis demonstrates that even simple patient-level aggregation of ICU time-series data can reveal clinically meaningful differences between Sepsis and Non-Sepsis patients.
+The final outcome variable was defined as:
 
-The observed patterns are consistent with clinical knowledge of sepsis pathophysiology:
+`SepsisPatient`
 
-- Distributive shock with a systemic shift of fluids to the tissue leads to an increased heart reflecting compensatory cardiovascular stress.
-- Reduced mean arterial pressure is consistent with reduced vessel fluids.
-- Elevated lactate levels indicate tissue hypoperfusion and anaerobic metabolism.
-- Increased creatinine suggests early signs of renal dysfunction in severe cases.
+where:
 
-### Limitations
-
-- Temporal dynamics are not modeled (loss of time-series information through aggregation before- and after diagnosing sepsis).
-- Aggregated statistics (mean/max/min) may conceal clinically relevant pattern changes before and after sepsis onset.
-- No predictive modeling is performed in this V1 version.
-- Missing data handling is simplified and may introduce bias.
-
-### Clinical Relevance
-
-Despite its simplicity, this analysis provides a clear and interpretable overview of physiological differences associated with sepsis. It serves as a foundation for more advanced data science, predictive modeling and time-series analysis in future work (V2).
+- 1 = patient developed sepsis
+- 0 = patient did not develop sepsis
 
 ---
 
-## Visualizations
+# 4. Exploratory Data Analysis (EDA)
 
-The project includes:
+The analysis followed a structured clinical EDA workflow:
 
-- Boxplots of key clinical variables
-- Patient-level summary statistics
-- Heatmap comparing group-level means
+## Cohort Analysis
+
+- Distribution of Sepsis vs Non-Sepsis patients
+
+## Univariate Analysis
+
+- Assessment of clinical variable distributions
+- Evaluation of skewness and potential outliers
+
+## Clinical Characteristics by Sepsis Status
+
+- Comparison of physiological and laboratory parameters between groups
+- Boxplots comparing:
+  - Heart rate
+  - Mean arterial pressure
+  - Lactate
+  - Creatinine
+  - Platelets
+
+## Clinical Summary
+
+- Group-level comparison of key clinical parameters
 
 ---
 
-## Interpretation
+# Key Findings
 
-The analysis demonstrates that even simple aggregation of ICU time-series data can reveal clinically meaningful differences between sepsis and non-sepsis patients.
+Patients with sepsis showed different clinical profiles compared with non-sepsis patients.
+
+Observed patterns included:
+
+- Higher heart rate values
+- Lower mean arterial pressure values
+- Increased lactate levels
+- Higher creatinine levels
+
+These findings are consistent with known physiological changes associated with systemic infection, impaired perfusion, and organ dysfunction.
 
 ---
 
-## Tools Used
+# Clinical Interpretation
+
+The observed differences reflect established clinical concepts:
+
+- Increased heart rate may represent compensatory cardiovascular stress during systemic inflammation.
+- Reduced MAP can occur due to vasodilation and impaired vascular tone in severe infection.
+- Elevated lactate may indicate impaired tissue oxygen utilization and hypoperfusion.
+- Increased creatinine may reflect impaired renal function associated with critical illness.
+
+---
+
+# Limitations
+
+- Temporal information was simplified through patient-level aggregation.
+- Aggregation may hide important changes occurring before or after sepsis onset.
+- Missing data handling was simplified and may introduce bias.
+- This project focuses on exploratory analysis only; no predictive model was developed in V1.
+
+---
+
+# Clinical Relevance
+
+This project demonstrates how patient-level aggregation of ICU time-series data can reveal clinically meaningful patterns.
+
+The analysis provides an interpretable foundation for future work including predictive modeling, temporal feature engineering, and clinical risk assessment.
+
+---
+
+# Visualizations
+
+Included visualizations:
+
+- Patient cohort distribution
+- Clinical variable distributions
+- Boxplots comparing Sepsis vs Non-Sepsis patients
+- Clinical summary heatmap
+
+---
+
+# Tools Used
 
 - Python
 - Pandas
@@ -133,9 +202,12 @@ The analysis demonstrates that even simple aggregation of ICU time-series data c
 
 ---
 
-## Future Work (V2 ideas)
+# Future Work (V2)
 
-- Time-to-sepsis prediction modeling
-- Machine learning classification
+Potential extensions:
+
+- Time-to-sepsis prediction
+- Machine learning classification models
 - Temporal feature engineering
-- Risk scoring system
+- Early warning risk scoring
+- Model explainability (e.g., feature importance, SHAP)
