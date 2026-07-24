@@ -137,21 +137,6 @@ The analysis followed a structured clinical EDA workflow:
 
 ---
 
-# Key Findings
-
-Patients with sepsis showed different clinical profiles compared with non-sepsis patients.
-
-Observed patterns included:
-
-- Higher heart rate values
-- Lower mean arterial pressure values
-- Increased lactate levels
-- Higher creatinine levels
-
-These findings are consistent with known physiological changes associated with systemic infection, impaired perfusion, and organ dysfunction.
-
----
-
 # Clinical Interpretation
 
 The observed differences reflect established clinical concepts:
@@ -163,7 +148,7 @@ The observed differences reflect established clinical concepts:
 
 ---
 
-# Statistical Analysis
+# 5. Statistical Analysis
 
 Group differences were assessed using hypothesis testing.
 
@@ -191,6 +176,22 @@ Variables analyzed:
 A significance level of **α = 0.05** was used.
 
 Most clinical variables showed statistically significant differences between Sepsis and Non-Sepsis patients. Platelet counts were not significant using Welch's t-test but reached significance using the Mann–Whitney U test, suggesting differences in the underlying distributions rather than in the group means.
+
+---
+
+
+# Key Findings
+
+Patients with sepsis showed different clinical profiles compared with non-sepsis patients.
+
+Observed patterns included:
+
+- Higher heart rate values
+- Lower mean arterial pressure values
+- Increased lactate levels
+- Higher creatinine levels
+
+These findings are consistent with known physiological changes associated with systemic infection, impaired perfusion, and organ dysfunction.
 
 ---
 
