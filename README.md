@@ -137,17 +137,6 @@ The analysis followed a structured clinical EDA workflow:
 
 ---
 
-# Clinical Interpretation
-
-The observed differences reflect established clinical concepts:
-
-- Increased heart rate may represent compensatory cardiovascular stress during systemic inflammation.
-- Reduced MAP can occur due to vasodilation and impaired vascular tone in severe infection.
-- Elevated lactate may indicate impaired tissue oxygen utilization and hypoperfusion.
-- Increased creatinine may reflect impaired renal function associated with critical illness.
-
----
-
 # 5. Statistical Analysis
 
 Group differences were assessed using hypothesis testing.
@@ -179,6 +168,16 @@ Most clinical variables showed statistically significant differences between Sep
 
 ---
 
+# Clinical Interpretation
+
+The observed differences reflect established clinical concepts:
+
+- Increased heart rate may represent compensatory cardiovascular stress during systemic inflammation.
+- Reduced MAP can occur due to vasodilation and impaired vascular tone in severe infection.
+- Elevated lactate may indicate impaired tissue oxygen utilization and hypoperfusion.
+- Increased creatinine may reflect impaired renal function associated with critical illness.
+
+---
 
 # Key Findings
 
