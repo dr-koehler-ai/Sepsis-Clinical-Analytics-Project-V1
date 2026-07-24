@@ -163,6 +163,37 @@ The observed differences reflect established clinical concepts:
 
 ---
 
+# Statistical Analysis
+
+Group differences were assessed using hypothesis testing.
+
+### Welch's Two-Sample t-test
+
+Continuous variables with approximately symmetric distributions were compared using Welch's two-sample t-test, which does not assume equal variances between groups.
+
+Variables analyzed:
+
+- Heart rate (HR)
+- Mean arterial pressure (MAP)
+
+### Mann–Whitney U test
+
+Laboratory variables with clearly skewed distributions were additionally analyzed using the non-parametric Mann–Whitney U test.
+
+Variables analyzed:
+
+- Maximum lactate
+- Maximum creatinine
+- Mean platelet count
+
+### Statistical Significance
+
+A significance level of **α = 0.05** was used.
+
+Most clinical variables showed statistically significant differences between Sepsis and Non-Sepsis patients. Platelet counts were not significant using Welch's t-test but reached significance using the Mann–Whitney U test, suggesting differences in the underlying distributions rather than in the group means.
+
+---
+
 # Limitations
 
 - Temporal information was simplified through patient-level aggregation.
